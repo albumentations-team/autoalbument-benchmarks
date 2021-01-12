@@ -1,0 +1,5 @@
+# @package _group_
+
+cudnn_benchmark: false
+cudnn_deterministic: true
+enable_amp: true

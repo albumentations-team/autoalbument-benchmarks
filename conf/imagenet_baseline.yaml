@@ -1,0 +1,14 @@
+defaults:
+  - task: classification
+  - device: cuda
+  - performance: amp
+  - distributed: enable_4x_gpu
+  - save: save_best
+  - logging: default
+  - output_dir: environment_var
+  - seed: default
+  - dataset/imagenet
+
+albumentations:
+  train_config_file: imagenet_baseline.json
+  val_config_file: imagenet_val.json

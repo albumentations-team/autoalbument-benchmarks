@@ -1,0 +1,39 @@
+# @package _global_
+
+train_dataset:
+  _target_: datasets.classification.svhn.ConcatSVHN
+  root: "${env:DATA_DIR}/svhn"
+  download: true
+
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 256
+  pin_memory: true
+  num_workers: 8
+
+val_dataset:
+  _target_: datasets.classification.svhn.SVHN
+  root: "${env:DATA_DIR}/svhn"
+  split: "test"
+  download: true
+
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 256
+  pin_memory: true
+  num_workers: 8
+
+epochs: 120
+
+optim:
+  _target_: torch.optim.Adam
+  lr: 0.001
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  step_size: 80
+  gamma: 0.1
+
+model:
+  _target_: models.wide_resnet.wide_resnet_28x10
+  num_classes: 10

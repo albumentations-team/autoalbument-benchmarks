@@ -1,0 +1,5 @@
+# @package _global_
+
+hydra:
+  run:
+    dir: ${env:OUTPUTS_DIR}/${config_name:}/${now:%Y-%m-%d}/${now:%H-%M-%S}

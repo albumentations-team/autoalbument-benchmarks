@@ -1,0 +1,7 @@
+# @package _group_
+
+use_distributed: true
+num_gpus: 4
+backend: nccl
+master_addr: '127.0.0.1'
+master_port: '12345'

@@ -1,0 +1,39 @@
+# @package _global_
+
+train_dataset:
+  _target_: datasets.classification.imagenet.ImageNet
+  root: "${env:DATA_DIR}/imagenet"
+  split: "train"
+
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 128
+  pin_memory: true
+  num_workers: 8
+
+val_dataset:
+  _target_: datasets.classification.imagenet.ImageNet
+  root: "${env:DATA_DIR}/imagenet"
+  split: "val"
+
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 128
+  pin_memory: true
+  num_workers: 8
+
+epochs: 90
+
+optim:
+  _target_: torch.optim.Adam
+  lr: 0.001
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  step_size: 60
+  gamma: 0.1
+
+model:
+  _target_: torchvision.models.resnet50
+  num_classes: 1000
+  pretrained: false

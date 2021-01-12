@@ -1,0 +1,6 @@
+# @package _global_
+
+task: classification
+
+criterion:
+  _target_: torch.nn.CrossEntropyLoss

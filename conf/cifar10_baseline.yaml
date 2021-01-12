@@ -1,0 +1,14 @@
+defaults:
+  - task: classification
+  - device: cuda
+  - performance: benchmark
+  - distributed: disable
+  - save: save_best
+  - logging: default
+  - output_dir: environment_var
+  - seed: default
+  - dataset/cifar10
+
+albumentations:
+  train_config_file: cifar10_baseline.json
+  val_config_file: cifar10_val.json

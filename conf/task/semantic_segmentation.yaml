@@ -1,0 +1,6 @@
+# @package _global_
+
+task: semantic_segmentation
+
+criterion:
+  _target_: torch.nn.BCEWithLogitsLoss

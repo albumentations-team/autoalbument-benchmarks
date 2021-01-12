@@ -1,0 +1,14 @@
+defaults:
+  - task: classification
+  - device: cuda
+  - performance: benchmark
+  - distributed: disable
+  - save: save_best
+  - logging: default
+  - output_dir: environment_var
+  - seed: default
+  - dataset/svhn
+
+albumentations:
+  train_config_file: svhn_baseline.json
+  val_config_file: svhn_baseline.json

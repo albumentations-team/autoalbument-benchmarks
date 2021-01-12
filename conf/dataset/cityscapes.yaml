@@ -1,0 +1,40 @@
+# @package _global_
+
+train_dataset:
+  _target_: datasets.semantic_segmentation.cityscapes.Cityscapes
+  root: "${env:DATA_DIR}/cityscapes/data"
+  split: "train"
+
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+  pin_memory: true
+  num_workers: 8
+
+val_dataset:
+  _target_: datasets.semantic_segmentation.cityscapes.Cityscapes
+  root: "${env:DATA_DIR}/cityscapes/data"
+  split: "val"
+
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+  pin_memory: true
+  num_workers: 8
+
+epochs: 500
+
+optim:
+  _target_: torch.optim.Adam
+  lr: 0.001
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  step_size: 250
+  gamma: 0.1
+
+model:
+  architecture: DeepLabV3Plus
+  encoder_architecture: resnet50
+  pretrained: true
+  num_classes: 19
