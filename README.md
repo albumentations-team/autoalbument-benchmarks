@@ -9,8 +9,8 @@
 
 | Augmentation strategy     | Top-1 Accuracy | Top-5 Accuracy |
 |---------------------------|:--------------:|:--------------:|
-| Baseline                  |      90.24     |      99.61     |
-| AutoAlbument              |    **95.09**   |    **99.83**   |
+| Baseline                  |      91.79     |      99.63     |
+| AutoAlbument              |    **96.02**   |    **99.91**   |
 
 
 ### SVHN (Classification)
@@ -21,8 +21,8 @@
 
 | Augmentation strategy     | Top-1 Accuracy | Top-5 Accuracy |
 |---------------------------|:--------------:|:--------------:|
-| Baseline                  |      98.05     |      99.70     |
-| AutoAlbument          |    **98.25**   |    **99.75**   |
+| Baseline                  |      98.31     |      99.68     |
+| AutoAlbument          |    **98.48**   |    **99.72**   |
 
 
 ### ImageNet (Classification)
@@ -39,8 +39,8 @@
 
 | Augmentation strategy     | Top-1 Accuracy | Top-5 Accuracy |
 |---------------------------|:--------------:|:--------------:|
-| Baseline                  |      67.76     |      87.40     |
-| AutoAlbument          |    **70.00**   |    **89.10**   |
+| Baseline                  |      73.27     |      91.64     |
+| AutoAlbument          |    **75.17**   |    **92.57**   |
 
 
 ### Pascal VOC (Semantic segmentation)

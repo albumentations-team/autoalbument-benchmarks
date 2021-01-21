@@ -8,7 +8,7 @@ train_dataset:
 
 train_dataloader:
   _target_: torch.utils.data.DataLoader
-  batch_size: 256
+  batch_size: 128
   pin_memory: true
   num_workers: 8
 
@@ -20,20 +20,22 @@ val_dataset:
 
 val_dataloader:
   _target_: torch.utils.data.DataLoader
-  batch_size: 256
+  batch_size: 128
   pin_memory: true
   num_workers: 8
 
-epochs: 300
+epochs: 200
 
 optim:
-  _target_: torch.optim.Adam
-  lr: 0.001
+  _target_: torch.optim.SGD
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
 
 scheduler:
-  _target_: torch.optim.lr_scheduler.StepLR
-  step_size: 150
-  gamma: 0.1
+  _target_: torch.optim.lr_scheduler.MultiStepLR
+  milestones: [60, 120, 160]
+  gamma: 0.2
 
 model:
   _target_: models.wide_resnet.wide_resnet_28x10
